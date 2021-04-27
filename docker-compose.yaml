@@ -6,8 +6,6 @@ services:
       context: ./node
       dockerfile: Dockerfile.prod
     container_name: node
-    volumes:
-      - ./node:/usr/src/app
     entrypoint: dockerize -wait tcp://db:3306 -timeout 20s node index.js
     depends_on:
       - db
